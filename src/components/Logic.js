@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Axios from "axios";
 import User from "./User";
 import Search from "./Search";
+import Repos from "./Repos";
 
 const Logic = () => {
     const [input, setInput] = useState("");
@@ -14,16 +15,15 @@ const Logic = () => {
 
     const handleClick = async () => {
         const response = await Axios.get(`https://api.github.com/users/${input}`);
-        console.log(response.data);
         setResult(response.data);
         setSearched(true);
-        setInput("");
     }
 
     return searched ? (
         <>
             <Search handleChange={handleChange} handleClick={handleClick} input={input} />
             <User result={result} />
+            <Repos input={input} />
         </>
     ) : (
         <Search handleChange={handleChange} handleClick={handleClick} input={input} />
