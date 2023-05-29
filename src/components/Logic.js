@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Axios from "axios";
+import User from "./User";
 import Search from "./Search";
 
 const Logic = () => {
