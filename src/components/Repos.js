@@ -11,7 +11,7 @@ const Repos = ({ input, result }) => {
             setRepos(response.data);
         }
         fetchRepos();
-    }, [result]);
+    }, [result, input]);
     return (
         repos !== [] && (
             <div className="container my-4">
